@@ -1,0 +1,8 @@
+x#!/bin/bash
+read -p "Username: " username
+useradd -g sudo -m $username
+passwd $usename
+
+echo "Thankyou + $username + we now have your login details."
+
+

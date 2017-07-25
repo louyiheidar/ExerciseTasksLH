@@ -1,0 +1,39 @@
+---
+
+- name: install_java_maven_git_jenkins_jira
+  hosts: all
+  remote_user: vagrant
+  sudo: yes
+
+  tasks:
+  - name: install_java
+    unarchive:
+     src: /tmp/shared/java.tar.gz
+     dest: /home/vagrant/Documents
+     copy: no
+
+  - name: install_maven
+    unarchive:
+     src: /tmp/shared/maven.tar.gz
+     dest: /home/vagrant/Documents
+     copy: no
+
+  - name: install_jenkins
+    apt: deb="/tmp/shared/jenkins_2.1_all.deb" state=present force=yes     
+  
+  - name: install_jira
+    command: "/tmp/shared/jira.bin -q -varfile response.varfile"
+    
+  - name: run_jenkins
+    service: name=jenkins state=started enabled=yes
+   
+  - name: install_git
+    apt: name=git state=present
+
+  - name: creating_configlinks 
+    command: "{{ item }}"
+    with_items:
+    - "update-alternatives --install /usr/bin/java java /home/vagrant/Documents/jdk1.8.0_45/bin/java 100"
+    - "update-alternatives --install /usr/bin/javac javac /home/vagrant/Documents/jdk1.8.0_45/bin/java 100"
+    - "update-alternatives --install /usr/bin/mvn mvn /home/vagrant/Documents/apache-maven-3.3.9/bin/mvn 100"
+    
