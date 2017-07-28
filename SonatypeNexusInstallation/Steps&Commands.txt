@@ -1,7 +1,7 @@
 Installation of Java 8 (Ubuntu 14.04 LTS)
 
 Step 1)
-Add the WebUpd8 Team Personal Package Archive (PPA)
+# Add the WebUpd8 Team Personal Package Archive (PPA)
 sudo apt-add-repository ppa:webupd8team/java
 
 Step 2)
@@ -12,11 +12,22 @@ Step 3)
 # Install Oracle Java 8 with the PPA installer
 sudo apt-get install oracle-java8-installer
 
+Step 4)
+# Verify that Java is installed
+java -version
+
 Installation of Git 
 
+Step 1)
 # Install Git by using Ubuntu’s default repositories
 sudo apt-get update
+
+Step 2)
 sudo apt-get install git
+
+Step 3)
+# Verify that Git is installed
+git --version
 
 Installation of Maven
 
@@ -29,7 +40,47 @@ Step 2)
 sudo tar zxvf maven.tar.gz
 
 Step 3)
-Set Maven to the Environment Path
+# Set Maven to the Environment Path
+sudo update-alternatives --install /usr/bin/mvn mvn /home/vagrant/Documents/apache-maven-3.3.9/bin/mvn 100
 
+Step 4)
+# Verify that Maven is installed and configured correctly
+mvn –v
 
+Installation of Nexus
 
+Step 1)
+Download the 2.x zip version
+https://www.sonatype.com/download-oss-sonatype
+
+Step 2)
+# Install ‘Unzip’ application
+sudo apt-get install unzip
+
+Step 3)
+# Extract the archive (nexus-2.14.4-03-budle.zip)
+unzip nexus-2.14.4-03-budle.zip
+
+Step 4)
+# Start Nexus, after extracting, the nexus script must be executed with a start parameter in the nexus folder
+./bin/nexus start
+
+Step 5)
+http://localhost:8081/nexus
+
+Jenkins Configurations
+
+Step 8)
+# Download Nexus Jenkins Plugin 
+(nexus-jenkins-plugin-1.1.0-05.hpi)
+http://download.sonatype.com/nexus/ci/latest.hpi
+
+Game of Life (GOL)
+
+Step 18)
+# Script Console (Groovy Script)
+Jenkins.instance.getJob('<job-name>').lastBuild.workspace;
+Jenkins.instance.getJob('GOLNexus').lastBuild.workspace;
+
+# Jenkins Workspace Default Location
+/root/.jenkins/workspace/GOLNexus
