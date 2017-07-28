@@ -1,1 +1,3 @@
-test
+Step 1)
+# Add the WebUpd8 Team Personal Package Archive (PPA)
+sudo apt-add-repository ppa:webupd8team/java
