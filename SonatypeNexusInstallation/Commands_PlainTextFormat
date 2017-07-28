@@ -58,8 +58,8 @@ Step 2)
 sudo apt-get install unzip
 
 Step 3)
-# Extract the archive (nexus-2.14.4-03-budle.zip)
-unzip nexus-2.14.4-03-budle.zip
+# Extract the archive (nexus-2.14.4-03-bundle.zip)
+unzip nexus-2.14.4-03-bundle.zip
 
 Step 4)
 # Start Nexus, after extracting, the nexus script must be executed with a start parameter in the nexus folder
