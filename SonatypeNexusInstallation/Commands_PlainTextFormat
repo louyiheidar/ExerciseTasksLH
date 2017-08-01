@@ -46,6 +46,7 @@ sudo update-alternatives --install /usr/bin/mvn mvn /home/vagrant/Documents/apac
 Step 4)
 # Verify that Maven is installed and configured correctly
 mvn –version
+mvn –v
 
 Installation of Nexus
 
